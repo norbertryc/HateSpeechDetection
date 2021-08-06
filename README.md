@@ -13,7 +13,7 @@ System performs "hate speech" classification - assigns to text on of three possi
 
 3. Call url in browser: `http://172.17.0.2:7777/predict?text=<text to classify>`
 
-###Example usage
+### Example usage
 
 `http://172.17.0.2:7777/predict?text=fajnjest%20fajnie` -> prediction = class 0
 
