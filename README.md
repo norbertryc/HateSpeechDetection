@@ -3,6 +3,23 @@ Hate spech detection experiments for polish language
 
 Repository contains experiments about hate sppech classification and usage instruction for depoloyed system based on this experiments.
 
+Repository structure:
+- `establishing_baseline.ipynb` - provides experiments about baseline models.
+- `data_preprocessing.ipynb` - provides code for data preparation. 
+
+
+# Experiments
+
+ Main tested factors:
+  - text lemmatized or raw
+  - Document Term Matrix or TFIDF matrix as text representation (and their hiperparameters)
+  - dimensionality reduction with SVD
+  - naive Bayes and linear SVM classifiers (and their hiperparameters)
+  
+ Main evaluation metric considered: Micro F1 Score (because of high class imbalance)
+
+# Deployed prototype
+
 System performs "hate speech" classification - assigns to text one of three possible classes:
  - 0: non-harmful
  - 1: cyberbullying
