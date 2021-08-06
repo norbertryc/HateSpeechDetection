@@ -25,6 +25,14 @@ Repository structure:
   
  Main evaluation metric considered: Micro F1 Score (because of high class imbalance)
 
+# Results
+
+
+| Model name   |      score [Micro F1]      |  Prediction speed [s/observation] |
+|----------|:-------------:|------:|
+| classic_ml |  0.879 | 0.000011 |
+| col 2 is |    0.865  |   0.029091 |
+    
 # Deployed prototype
 
 System performs "hate speech" classification - assigns to text one of three possible classes:
@@ -46,4 +54,6 @@ System performs "hate speech" classification - assigns to text one of three poss
 `localhost:7777/predict?text=@anonymized_account%20Nie%20bucz,%20i%20tak%20%C5%9Bmierdzisz` -> prediction = class 2
 
 Text can be provided in a natural way - with polish characters and spaces.
+
+
 
