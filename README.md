@@ -4,17 +4,22 @@ Hate spech detection experiments for polish language
 Repository contains experiments about hate sppech classification and usage instruction for depoloyed system based on this experiments.
 
 Repository structure:
-- `establishing_baseline.ipynb` - provides experiments about baseline models.
-- `data_preprocessing.ipynb` - provides code for data preparation. 
+- `data_preprocessing.ipynb` - code for data preparation. 
+- `establishing_baseline.ipynb` - experiments about baseline simple machine learning models.
+- `transformers_baseline` - experiments with using pretrained BERT-based encoder for text
 
 
 # Experiments
 
- Main tested factors:
+ Main tested factors in `establishing_baseline`:
   - text lemmatized or raw
   - Document Term Matrix or TFIDF matrix as text representation (and their hiperparameters)
   - dimensionality reduction with SVD
   - naive Bayes and linear SVM classifiers (and their hiperparameters)
+  
+ Experiments in `transformers_baseline`:
+  - roberta model used as encoder (RoBERTa‑v2 (base) v4.4 from https://github.com/sdadas/polish-roberta)
+  - linear svm and Multilayer Perceptron fitted and on the top of encodings optimized as classifiers
   
  Main evaluation metric considered: Micro F1 Score (because of high class imbalance)
 
@@ -28,7 +33,7 @@ System performs "hate speech" classification - assigns to text one of three poss
 ## Usage
 1. Download dokcer image: `docker pull norbertryc/hate_speech:hsc`
 
-2. Run docker image: `docker run -p 7777:7777 hate\_speech\_classification`
+2. Run docker image: `docker run -p 7777:7777 norbertryc/hate_speech:hsc`
 
 3. Call url in browser: `http://172.17.0.2:7777/predict?text=<text to classify>`
 
