@@ -6,7 +6,9 @@ Repository contains experiments about hate sppech classification and usage instr
 Repository structure:
 - `data_preprocessing.ipynb` - code for data preparation. 
 - `establishing_baseline.ipynb` - experiments about baseline simple machine learning models.
-- `transformers_baseline` - experiments with using pretrained BERT-based encoder for text
+- `transformers_baseline.ipynb` - experiments with using pretrained BERT-based encoder for text
+- `evaluation.ipynb` - evaluation of best variant for each approach - quality and prediction speed
+
 
 
 # Experiments
@@ -35,15 +37,13 @@ System performs "hate speech" classification - assigns to text one of three poss
 
 2. Run docker image: `docker run -p 7777:7777 norbertryc/hate_speech:hsc`
 
-3. Call url in browser: `http://172.17.0.2:7777/predict?text=<text to classify>`
+3. Call url in browser: `localhost:7777/predict?text=<text to classify>`
 
 ### Example usage
 
-`http://172.17.0.2:7777/predict?text=jest fajnie` -> prediction = class 0
+`localhost:7777/predict?text=jest fajnie` -> prediction = class 0
 
-`172.17.0.2:7777/predict?text=@anonymized_account%20Nie%20bucz,%20i%20tak%20%C5%9Bmierdzisz` -> prediction = class 2
+`localhost:7777/predict?text=@anonymized_account%20Nie%20bucz,%20i%20tak%20%C5%9Bmierdzisz` -> prediction = class 2
 
 Text can be provided in a natural way - with polish characters and spaces.
 
-### Additional info
-Image size: 681 MB
