@@ -31,7 +31,7 @@ Repository structure:
 | Model name   |      score [Micro F1]      |  Prediction speed [s/observation] |
 |----------|:-------------:|------:|
 | classic_ml |  0.879 | 0.000011 |
-| col 2 is |    0.865  |   0.029091 |
+| transformer\_encoder\_based |    0.865  |   0.029091 |
     
 # Deployed prototype
 
