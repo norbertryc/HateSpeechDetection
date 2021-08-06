@@ -23,15 +23,28 @@ Repository structure:
   - roberta model used as encoder (RoBERTa‑v2 (base) v4.4 from https://github.com/sdadas/polish-roberta)
   - linear svm and Multilayer Perceptron fitted and on the top of encodings optimized as classifiers
   
+ Experimens in `<...>_on_augmented_data.ipynb`:
+  - same as above but on augmented training set (see section "data augmentation" below)
+  
  Main evaluation metric considered: Micro F1 Score (because of high class imbalance)
+
+## Data augmentation
+
+Data are highly imbalanced so it is godd to adress this issue. In some models in experiments we used weighting of classes as it should improve our models. 
+
+We would like to perform data augmentation but ther is no clear way of augmenting text data (especially short). So we came up with original idea: we extend text of miniority classes with some additional word generated with powerfull language model - we take text, we treat it like the starting point ang generate next few words with gpt model. In thi way we create many variant of each text. What is important - it is reasonable metho because it does not affect text class - if it is jate speech, then with some contiunuation added it will still contain hate speech. Adidionaly, added tex can provide additional inormation fo better model performance because, language model adds texts with respect to context.
 
 # Results
 
 
-| Model name   |      score [Micro F1]      |  Prediction speed [s/observation] |
+| Model name   |      score [Micro F1]      |  Prediction speed [sec/observation] |
 |----------|:-------------:|------:|
-| classic_ml |  0.879 | 0.000011 |
+| classic_ml |  **0.879** | 0.000011 |
 | transformer\_encoder\_based |    0.865  |   0.029091 |
+| classic_ml on augmented data |  0.873 | - |
+| transformer\_encoder\_based on augmented data |    0.854  |   - |
+    
+ Score in bold beats Poleval 2019 task 6.2 winner (http://2019.poleval.pl/index.php/results/) 
     
 # Deployed prototype
 
@@ -53,7 +66,7 @@ System performs "hate speech" classification - assigns to text one of three poss
 
 `localhost:7777/predict?text=@anonymized_account%20Nie%20bucz,%20i%20tak%20%C5%9Bmierdzisz` -> prediction = class 2
 
-Text can be provided in a natural way - with polish characters and spaces.
+Text can be provided in a natural way - with polish characters and spaces. Beacaues of the fakt that model very rarerly classifies text as hate speech, if you want to see this kind of predcistion ypu should use swear-words :)
 
 
 
