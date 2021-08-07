@@ -67,7 +67,7 @@ System performs "hate speech" classification - assigns to text one of three poss
 
 `localhost:7777/predict?text=@anonymized_account%20Nie%20bucz,%20i%20tak%20%C5%9Bmierdzisz` -> prediction = class 2
 
-Text can be provided in a natural way - with Polish characters and spaces. Beacaues of the fact that model very rarely classifies text as hate speech, if you want to see this kind of prediction you should use swear-words :)
+Text can be provided in a natural way - with Polish characters and spaces. Because of the fact that model very rarely classifies text as hate speech or cyberbulling, if you want to see this kind of prediction you should use swear-words :)
 
 
 
